@@ -1,4 +1,4 @@
-<apex:page >
+<apex:component >
     <div data-role="header" data-position="fixed">
         <a href='#page_contact_search' id="back2ContactList" class='ui-btn-left' data-icon='arrow-l' data-direction="reverse" data-transition="flip">
             <apex:outputText value="Back" />
@@ -35,4 +35,4 @@
             <apex:outputText value="Delete" />
         </button>
     </div>
-</apex:page>
+</apex:component>

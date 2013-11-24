@@ -8,17 +8,19 @@
         <apex:define name="body">
             <!-- Menu Page -->
             <div data-role="page" data-theme="b" id="page_menu">                
-                <apex:include pageName="JQueryMobileContentMenu" />
+                <c:JQueryMobileContentMenu />
             </div>
             
             <!-- Contact Search -->
             <div data-role="page" data-theme="b" id="page_contact_search">
-                <apex:include pageName="JQueryMobileContactSearch" />
+                <c:JQueryMobileContactSearch />
             </div>
+            
             <!-- Contact Entry -->
             <div data-role="page" data-theme="b" id="page_contact_entry">
-                <apex:include pageName="JQueryMobileContactEntry"/>
+                <c:JQueryMobileContactEntry />
             </div>
+            
             <apex:include pageName="JQueryMobileIndexScript" />
         </apex:define>
     </apex:composition>

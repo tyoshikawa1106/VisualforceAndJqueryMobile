@@ -1,6 +1,6 @@
-<apex:page id="mobileContactSearch">
+<apex:component id="mobileContactSearch">
     <div data-role="header" data-position="fixed">
-        <a href='#page_top' id="back2ContactList" class='ui-btn-left' data-icon='arrow-l' data-direction="reverse" data-transition="flip">
+        <a href='#page_menu' id="back2ContactList" class='ui-btn-left' data-icon='arrow-l' data-direction="reverse" data-transition="flip">
             <apex:outputText value="Back" />
         </a>
         <h2>
@@ -15,4 +15,4 @@
         data-theme="c" data-dividertheme="b">
         </ul>
     </div>
-</apex:page>
+</apex:component>

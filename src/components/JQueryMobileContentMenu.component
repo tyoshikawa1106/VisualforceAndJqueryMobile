@@ -1,4 +1,4 @@
-<apex:page >
+<apex:component >
     <div data-role="header" data-position="fixed">
         <h2>
             <apex:outputText value="Top" />
@@ -32,4 +32,4 @@
             </li>
         </ul>
     </div>
-</apex:page>
+</apex:component>
