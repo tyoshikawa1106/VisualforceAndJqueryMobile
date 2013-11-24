@@ -1,0 +1,115 @@
+<apex:page id="mobileIndexScript">
+    <script type="text/javascript">
+        
+        var $j = jQuery.noConflict(); 
+        var client = new remotetk.Client();
+        Force.init(null,null,client,null);
+        
+        var Contacts = new SObjectData();
+        Contacts.errorHandler = displayError;
+        
+        // Page表示初期処理
+        $j(document).ready(function() {
+            regBtnClickHandlers();
+        });
+        
+        // page_contact_searchページ表示処理
+        $j( '#page_contact_search' ).on( 'pageshow',function(event){
+            getAllContacts();
+        });
+        
+        // Contactの情報を取得      
+        function getAllContacts() {
+            Contacts.fetch('soql','SELECT id, firstName, lastName, Name, phone FROM Contact ORDER BY Name ASC LIMIT 100',function() {
+                showContacts(Contacts.data());
+            });
+        }
+        
+        // Contactの情報をページに表示
+        function showContacts(records) {    
+            $j('#cList').empty();
+            $j.each(Contacts.data(),
+            function() {
+                var newLi = $j('<li></li>');
+                
+                var contactName = this.Name;
+                                  
+                var newLink = $j('<a id="' +this.Id+ '" data-transition="flip">' +contactName+ '</a>');
+                newLink.click(function(e) {
+                    e.preventDefault();
+                    $j.mobile.showPageLoadingMsg();
+                    $j('#fName').val(Contacts.findRecordById([this.id]).FirstName);
+                    $j('#lName').val(Contacts.findRecordById([this.id]).LastName);
+                    $j('#phone').val(Contacts.findRecordById([this.id]).Phone);
+                    $j('#contactId').val(Contacts.findRecordById([this.id]).Id);
+                    $j('#error').html('');
+                             
+                    $j.mobile.changePage('#page_contact_entry', {changeHash: true});
+                });
+                newLi.append(newLink);            
+                newLi.appendTo('#cList');
+                //  x++;
+            });
+                  
+            $j.mobile.hidePageLoadingMsg();
+            $j('#cList').listview('refresh');
+        }      
+          
+        // Contactの情報を登録
+        function addUpdateContact(e){
+            e.preventDefault();
+            var cId = $j('#contactId').val();
+            var record = Contacts.findRecordById(cId);
+            if(record == null) { //new record
+                record = Contacts.create();
+            } 
+            record.FirstName = $j('#fName').val();
+            record.LastName = $j('#lName').val();
+            record.Phone = $j('#phone').val();
+            Contacts.sync(record,successCallback);
+        }
+          
+        // Contactの情報を削除
+        function deleteContact(e){
+            e.preventDefault();
+            Contacts.remove(Contacts.findIndexById($j('#contactId').val()),successCallback);
+        }
+              
+        // page_contact_searchのページに移動
+        function successCallback(r){
+            getAllContacts();
+            $j.mobile.changePage('#page_contact_search', {changeHash: true});
+        }
+        
+        // Errorメッセージを表示  
+        function displayError(e){
+            console.log(e);
+            $j('#error').html(e[0].message);
+        }
+        
+        // ボタンクリック時の処理
+        function regBtnClickHandlers() {
+            $j('#add').click(function(e) {
+                e.preventDefault();
+                $j.mobile.showPageLoadingMsg();
+                $j('#fName').val('');
+                $j('#lName').val('');
+                $j('#phone').val('');
+                $j('#error').html('');
+                $j('#contactId').val('');
+                $j.mobile.changePage('#page_contact_entry', {changeHash: true});
+                $j.mobile.hidePageLoadingMsg();            
+            });
+            
+            // Saveボタンクリック時の処理      
+            $j('#save').click(function(e) {
+                addUpdateContact(e);
+            });
+            
+            // Deleteボタンクリック時の処理      
+            $j('#delete').click(function(e) {
+                deleteContact(e);
+            });
+        }
+    </script>
+</apex:page>

@@ -1,0 +1,38 @@
+<apex:page >
+    <div data-role="header" data-position="fixed">
+        <a href='#page_contact_search' id="back2ContactList" class='ui-btn-left' data-icon='arrow-l' data-direction="reverse" data-transition="flip">
+            <apex:outputText value="Back" />
+        </a>
+        <h1>
+            <apex:outputText value="Contact Details" />
+        </h1>
+    </div>
+    <div data-role="content" id="content_contact_entry">
+        <div data-role="fieldcontain">
+            <label for="fName">
+                <apex:outputText value="First Name:" />
+            </label>
+            <input name="fName" id="fName" />
+        </div>
+        <div data-role="fieldcontain">
+            <label for="lName">
+                <apex:outputText value="Last Name:" />
+            </label>
+            <input name="lName" id="lName" />
+        </div>
+        <div data-role="fieldcontain">
+            <label for="phone">
+                <apex:outputText value="Phone:" />
+            </label>
+            <input name="phone" id="phone"/>
+        </div>
+        <h2 style="color:red" id="error"></h2><br/>
+        <input type="hidden" id="contactId" />
+        <button id="save" data-role="button" data-icon="check" data-inline="true" data-theme="b" class="save">
+            <apex:outputText value="Save" />
+        </button>
+        <button id="delete" data-role="button" data-icon="delete" data-inline="true" class="destroy">
+            <apex:outputText value="Delete" />
+        </button>
+    </div>
+</apex:page>

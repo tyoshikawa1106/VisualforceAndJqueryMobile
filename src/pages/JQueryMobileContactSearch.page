@@ -1,0 +1,18 @@
+<apex:page id="mobileContactSearch">
+    <div data-role="header" data-position="fixed">
+        <a href='#page_top' id="back2ContactList" class='ui-btn-left' data-icon='arrow-l' data-direction="reverse" data-transition="flip">
+            <apex:outputText value="Back" />
+        </a>
+        <h2>
+            <apex:outputText value="Contacts" />
+        </h2>
+        <a href='#' id="add" class='ui-btn-right' data-icon='add' data-theme="b">
+            <apex:outputText value="Add" />
+        </a>
+    </div>
+    <div data-role="content" id="content_contact_search">            
+        <ul id="cList" data-filter="true" data-inset="true" data-role="listview" 
+        data-theme="c" data-dividertheme="b">
+        </ul>
+    </div>
+</apex:page>

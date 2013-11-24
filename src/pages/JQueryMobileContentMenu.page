@@ -1,0 +1,35 @@
+<apex:page >
+    <div data-role="header" data-position="fixed">
+        <h2>
+            <apex:outputText value="Top" />
+        </h2>
+    </div>
+    <div data-role="content" id="content_menu">            
+        <ul id="menuList" data-filter="true" data-inset="true" data-role="listview" 
+        data-theme="c" data-dividertheme="b">
+            <li data-role="list-divider">
+                <apex:outputText value="Menu" />
+            </li>
+            <li>
+                <a href="#page_contact_search">
+                    <apex:outputText value="Contacts" />
+                </a>
+            </li>
+            <li>
+                <apex:outputText value="-" />
+            </li>
+            <li>
+                <apex:outputText value="-" />
+            </li>
+            <li>
+                <apex:outputText value="-" />
+            </li>
+            <li>
+                <apex:outputText value="-" />
+            </li>
+            <li>
+                <apex:outputText value="-" />
+            </li>
+        </ul>
+    </div>
+</apex:page>

@@ -1,0 +1,13 @@
+<apex:page id="mobileTemplate">
+    <head>
+        <title>
+            <apex:insert name="title"/>
+        </title>
+        <apex:include pageName="JQueryMobileLibrary"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <c:RemoteTK />
+    </head>
+    <body>
+        <apex:insert name="body" />
+    </body>
+</apex:page>

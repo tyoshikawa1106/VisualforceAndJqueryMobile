@@ -1,0 +1,25 @@
+<apex:page docType="html-5.0" showHeader="false" sidebar="false" id="mobileIndex">
+    <apex:composition template="JQueryMobileTemplate">
+    
+        <apex:define name="title">
+            <apex:outputText value="T-Yoshikawa Apps" />
+        </apex:define>
+        
+        <apex:define name="body">
+            <!-- Menu Page -->
+            <div data-role="page" data-theme="b" id="page_menu">                
+                <apex:include pageName="JQueryMobileContentMenu" />
+            </div>
+            
+            <!-- Contact Search -->
+            <div data-role="page" data-theme="b" id="page_contact_search">
+                <apex:include pageName="JQueryMobileContactSearch" />
+            </div>
+            <!-- Contact Entry -->
+            <div data-role="page" data-theme="b" id="page_contact_entry">
+                <apex:include pageName="JQueryMobileContactEntry"/>
+            </div>
+            <apex:include pageName="JQueryMobileIndexScript" />
+        </apex:define>
+    </apex:composition>
+</apex:page>
