@@ -1,12 +1,12 @@
 VisualforceAndJqueryMobile
 ==========================
 
-Mobile Pack for jQuery MobileをベースにJQueryMobileのサンプルを作成しました。
-<br/>
-<br/>
-<b>Mobile Pack for jQuery Mobile</b>
-<br/>
-http://www2.developerforce.com/mobile/getting-started/html5/#jquery
-<br/>
-<br/>
-![alt text](http://cdn-ak.f.st-hatena.com/images/fotolife/t/tyoshikawa1106/20131125/20131125220517.png)
+Mobile Pack for jQuery MobileをベースにJQueryMobileのサンプルを作成しました。  
+  
+>Mobile Pack for jQuery Mobile  
+>http://www2.developerforce.com/mobile/getting-started/html5/#jquery  
+  
+![alt text](http://cdn-ak.f.st-hatena.com/images/fotolife/t/tyoshikawa1106/20131125/20131125220517.png)  
+  
+>Package URL
+>https://login.salesforce.com/packaging/installPackage.apexp?p0=04ti0000000L72v
